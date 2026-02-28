@@ -1,0 +1,132 @@
+/* Робимо так, щоб тіло сторінки розтягувалося на весь екран */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Змушуємо main займати весь вільний простір, штовхаючи футер вниз */
+main {
+    flex: 1;
+}
+body {
+    background-color: #F5DEB3; /* Фон сторінки залишаємо світлим */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #8B5A2B; /* Темно-коричневий фон шапки */
+    border-bottom: 3px solid #5d3a1a; /* Трохи темніша лінія знизу */
+}
+
+.logo {
+    color: #F5DEB3; /* Молочний колір тексту */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid #F5DEB3; /* Молочна рамка */
+    color: #F5DEB3; /* Молочний колір тексту */
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s; /* Плавна зміна кольору */
+}
+
+/* Ефект при наведенні */
+button:hover {
+    background-color: #F5DEB3; /* Стає молочним */
+    color: #8B5A2B; /* Текст стає коричневим */
+}
+/* Контейнер для випадаючого меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Приховуємо меню за замовчуванням */
+.dropdown-content {
+    display: none;
+    position: absolute; /* "Вириваємо" його з потоку, щоб воно накладалося зверху */
+    background-color: #fdf5e6; /* Світло-молочний колір "паперу" */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Тінь, щоб виглядало об'ємно */
+    z-index: 1; /* Щоб воно було поверх всього */
+    border-radius: 0 0 5px 5px;
+}
+
+/* Кожен пункт меню */
+.dropdown-content a {
+    color: #8B5A2B;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+/* Ефект при наведенні на пункт меню */
+.dropdown-content a:hover {
+    background-color: #8B5A2B;
+    color: #F5DEB3;
+}
+
+/* Показуємо меню при наведенні на контейнер */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+footer {
+    background-color: #8B5A2B; /* Темно-коричневий, як і шапка */
+    color: #F5DEB3; /* Молочний текст */
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px; /* Відступ зверху, щоб футер не прилипав до контенту */
+    border-top: 3px solid #5d3a1a;
+}
+/* 1. Робимо зображення адаптивними (це загальне правило) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Медіа-запит для планшетів та мобільних (менше 768px) */
+@media (max-width: 768px) {
+    
+    /* Робимо шапку вертикальною */
+    .header {
+        flex-direction: column; /* Змінюємо напрямок з рядка на стовпчик */
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Ховаємо великі відступи, щоб було зручніше на телефоні */
+    .nav {
+        display: flex;
+        flex-direction: column; /* Пункти меню один під одним */
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .nav button, .dropdown {
+        margin: 5px 0; /* Зменшуємо відступи */
+        width: 100%;
+    }
+
+    /* Адаптуємо блок профілю */
+    .profile {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
